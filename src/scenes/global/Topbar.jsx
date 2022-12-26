@@ -1,14 +1,14 @@
 import {Box, IconButton, useTheme} from "@mui/material"
 import {useContext} from "react";
 import {ColorModeContext, tokens} from "../../theme";
-import InputBase from "@mui/material";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutLined";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutLined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutLined";
+import {InputBase} from "@mui/material";
+import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search"
 import styled from "@emotion/styled";
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 
 const styledBox = styled(Box);
 
@@ -16,7 +16,6 @@ const Topbar = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const colorMode = useContext(ColorModeContext);
-
 
     return (<Box display="flex" justifyContent="space-between" p={2}>
         {/*Search Bar*/}
@@ -31,9 +30,27 @@ const Topbar = () => {
             </IconButton>
 
         </Box>
+        {/* ICONS */}
+        <Box display={"flex"}>
+            <IconButton onClick={colorMode.toggleColormode}>
+                {theme.palette.mode === 'dark' ? (<DarkModeOutlinedIcon/>) : (<LightModeOutlinedIcon/>)}
+            </IconButton>
+
+            <IconButton>
+                <NotificationsOutlinedIcon/>
+            </IconButton>
+
+            <IconButton>
+                <SettingsOutlinedIcon/>
+            </IconButton>
+
+            <IconButton>
+                <PersonOutlinedIcon/>
+            </IconButton>
+
+        </Box>
 
         <IconButton sx={{display: "flex"}}></IconButton>
     </Box>);
 }
-
 export default Topbar;
