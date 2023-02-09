@@ -22,7 +22,11 @@ const generatePalette = () => {
     }
 }
 generatePalette();
-// const copyColor = (ele, hexVal) => {
-//     const colorElement = ele.querySelector(".hex-value");
-// }
+const copyColor = (ele, hexVal) => {
+    const colorElement = ele.querySelector(".hex-value");
+    navigator.clipboard.writeText(hexVal).then(() => {
+        colorElement.innerText = "Copied";
+        setTimeout(() => colorElement.innerText = hexVal, 1000);
+    }).catch(() => alert("Fail to copy the code!"))
+}
 refreshBtn.addEventListener("click", generatePalette)
