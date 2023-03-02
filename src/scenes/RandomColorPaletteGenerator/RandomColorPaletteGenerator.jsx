@@ -9,8 +9,8 @@ const RandomColorPaletteGenerator = () => {
         <meta name={"viewport"} content={"width=device-width, initial-scale=1.0"}/>
     </head>
     <body>
-        <ul class={"container"}></ul>
-    <button class={"refresh-btn"}>Refresh Palette</button>
+        <ul className={"container"}></ul>
+    <button className={"refresh-btn"}>Refresh Palette</button>
     </body>
     </html>
 }
